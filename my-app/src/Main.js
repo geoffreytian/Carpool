@@ -4,29 +4,64 @@ import {
   NavLink,
   HashRouter
 } from "react-router-dom";
-import Home from "./Home";
-import Stuff from "./Stuff";
-import Contact from "./Contact";
+import driver from "./driver"
+import Button from '@material-ui/core/Button';
+import Home from "./Home"
+
+
+class UserButton extends Component{
+    render(){
+        return(
+              <Button className="button" variant="contained" color="primary">
+                  <NavLink to="/driver">Driver</NavLink>
+              </Button>
+        )
+    }
+}
+
+class HomeButton extends Component{
+  render(){
+    return(
+        <Button className="button" variant="contained" color="primary">
+            <NavLink to="/Home">Home</NavLink>
+        </Button>
+    )
+  }
+}
+
  
 class Main extends Component {
+
+    renderButton() {
+        return (
+            <UserButton/>
+        );
+    }
+
+    renderHome(){
+      return(
+          <HomeButton/>
+      )
+    }
+
   render() {
     return (
       <HashRouter>
         <div>
-          <h1>Simple SPA</h1>
-          <ul className="header"></ul>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/stuff">Stuff</NavLink></li>
-            <li><NavLink to="/contact">Contact</NavLink></li>
-          <div className="content">
-             <Route path="/" component={Home}/>
-            <Route path="/stuff" component={Stuff}/>
-            <Route path="/contact" component={Contact}/>
-          </div>
+          <h1>Select:</h1>
+          <p>{this.renderButton()}{this.renderButton()}{this.renderHome()}</p>
+            <div className="content">
+                <br></br>
+                <p>
+                <Route path="/driver" component={driver}/>
+                <Route path="/" component={Home}/>
+                </p>
+            </div>
         </div>
       </HashRouter>
     );
   }
 }
+
  
 export default Main;
