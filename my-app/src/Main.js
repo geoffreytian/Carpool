@@ -23,7 +23,7 @@ class HomeButton extends Component{
   render(){
     return(
         <Button className="button" variant="contained" color="primary">
-            <NavLink to="/Home">Home</NavLink>
+            <NavLink to="/Home" onClick={ }>Home</NavLink>
         </Button>
     )
   }
