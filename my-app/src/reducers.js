@@ -9,7 +9,6 @@ export default (state = {}, action) => {
     case GET_RIDER_BY_ID_SUCCESS:
       return { ...state, rider: action.data };
     case CREATE_DRIVER_SUCCESS:
-      return { ...state, driver: action.data };
     case GET_DRIVER_BY_ID_SUCCESS:
       return { ...state, driver: action.data };
     default:

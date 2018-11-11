@@ -1,75 +1,36 @@
 import React, { Component } from "react";
-import {
-  Route,
-  NavLink,
-  HashRouter
-} from "react-router-dom";
-import "./App.css";
-import Home from "./Home"
-import CreateDriver from "./CreateDriver"
-import CreateRider from "./CreateRider"
+import { HashRouter, Route } from 'react-router-dom';
+import { Paper } from '@material-ui/core';
+import NavBar from './NavBar';
+import ViewSelector from './ViewSelector';
+import CreateDriver from './CreateDriver';
+import DriverDetail from './DriverDetail';
+import CreateRider from './CreateRider';
 
-
-class DriverButton extends Component{
-    render(){
-        return(
-            <NavLink className="link" class="link" to="/drivers/new">Driver</NavLink>
-        )
-    }
-}
-
-class HomeButton extends Component {
-    render() {
-        return (
-            <NavLink className="link" class="link" to="/Home">Home</NavLink>
-        )
-    }
-}
-
-class PassengerButton extends Component{
-    render(){
-        return(
-            <NavLink className="link" class="link" to="/riders/new">Passenger</NavLink>
-        )
-    }
-}
-
- 
 class Main extends Component {
+  state = {
+    view: 'default' // types: default, driver, rider
+  };
 
-    renderDriver() {
-        return (
-            <DriverButton/>
-        );
-    }
+  changeView = view => {
+    this.setState({ view });
+  };
 
-    renderHome() {
-        return (
-            <HomeButton/>
-        )
-    }
-
-    renderPassenger() {
-        return (
-            <PassengerButton/>
-        )
-    }
-
-    render() {
-        return (
-            <HashRouter>
-                <div>
-                    {this.renderHome()} {this.renderDriver()} {this.renderPassenger()}
-                    <div className="content">
-                        <br></br>
-                        <Route path="/Home" component={Home}/>
-                        <Route path="/drivers/new" component={CreateDriver}/>
-                        <Route path="/riders/new" component={CreateRider}/>
-                    </div>
-                </div>
-            </HashRouter>
-        );
-    }
+  render() {
+    return (
+      <HashRouter basename="/">
+        <div>
+          <Route path="/" component={NavBar} />
+          <div>
+            <Route path="/start" component={ViewSelector} />
+            <Route path="/drivers/:id" component={DriverDetail} />
+            <Route path="/new-driver" component={CreateDriver} />
+            <Route path="/new-rider" component={CreateRider} />
+          </div>
+        </div>
+      </HashRouter>
+    );
+  }
 }
 
 

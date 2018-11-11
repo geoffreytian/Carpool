@@ -44,6 +44,9 @@ class CreateRider extends Component {
       <form onSubmit={this.handleSubmit} className="form">
         <List>
           <ListItem>
+            <h2>Sign Up as a Passenger</h2>
+          </ListItem>
+          <ListItem>
             <TextField
               className="TextField"
               value={this.state.firstName}

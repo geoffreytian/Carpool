@@ -6,9 +6,9 @@
   width: 250px;
 }
 
-body {
+/* body {
   background-color: mintcream;
-}
+} */
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -76,12 +76,10 @@ body {
 
 /*}*/
 
-a:link, a:visited {
+/* a:link, a:visited {
 
-  /*line-height: 34px;*/
   vertical-align: center;
   height: 30px;
-  /*padding: 10px;*/
   width: 20%;
   margin-left: 6.8%;
   margin-top: 3%;
@@ -124,7 +122,6 @@ a:hover, a:active {
   font-family: "Helvetica Neue";
   color: rgba(0, 0, 0, 0.66);
   font-size: 30px;
-  /*font-weight: bold;*/
   line-height: 12px;
   vertical-align: text-top;
   width: 40%;
@@ -155,19 +152,19 @@ p {
   font-weight: bold;
   margin-top: 3%;
 
-}
+} */
 
 .form {
   margin-top: -1%;
   margin-left: 40%;
 }
 
-.inputbox {
+/* .inputbox {
   width: 30%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-}
+} */
 
 .submit {
   margin-left: 35%;

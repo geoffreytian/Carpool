@@ -43,8 +43,11 @@ class CreateDriver extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} class="form">
+      <form onSubmit={this.handleSubmit} className="form">
         <List>
+          <ListItem>
+            <h2>Sign Up as a Driver</h2>
+          </ListItem>
           <ListItem>
             <TextField
               className="TextField"
