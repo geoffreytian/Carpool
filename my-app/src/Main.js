@@ -4,17 +4,19 @@ import {
   NavLink,
   HashRouter
 } from "react-router-dom";
-import driver from "./driver"
+import Driver from "./Driver"
 import Button from '@material-ui/core/Button';
-import Home from "./Home"
+import Home from "./Home";
+import "./App.css";
+import Passenger from "./Passenger";
 
-
-class UserButton extends Component{
+class DriverButton extends Component{
     render(){
         return(
-              <Button className="button" variant="contained" color="primary">
-                  <NavLink to="/driver">Driver</NavLink>
-              </Button>
+            <NavLink className="link" class="link" to="/Driver">Driver</NavLink>
+            // <Button className="button" class="button" variant="contained" color="primary">
+            //
+            //   </Button>
         )
     }
 }
@@ -22,19 +24,30 @@ class UserButton extends Component{
 class HomeButton extends Component{
   render(){
     return(
-        <Button className="button" variant="contained" color="primary">
-            <NavLink to="/Home" onClick={ }>Home</NavLink>
-        </Button>
+        <NavLink className="link" class="link" to="/Home">Home</NavLink>
+        // <Button className="button" class="button" variant="contained" color="primary">
+        //
+        // </Button>
     )
   }
+}
+
+class PassengerButton extends Component{
+    render(){
+        return(
+            <NavLink className="link" class="link" to="/Passenger">Passenger</NavLink>
+            // <Button className="button" class="button" variant="contained" color="primary">
+            // </Button>
+        )
+    }
 }
 
  
 class Main extends Component {
 
-    renderButton() {
+    renderDriver() {
         return (
-            <UserButton/>
+            <DriverButton/>
         );
     }
 
@@ -44,17 +57,24 @@ class Main extends Component {
       )
     }
 
+    renderPassenger(){
+        return(
+            <PassengerButton/>
+        )
+    }
+
   render() {
     return (
       <HashRouter>
         <div>
-          <h1>Select:</h1>
-          <p>{this.renderButton()}{this.renderButton()}{this.renderHome()}</p>
+            {this.renderHome()} {this.renderDriver()}  {this.renderPassenger()}
+
             <div className="content">
                 <br></br>
                 <p>
-                <Route path="/driver" component={driver}/>
-                <Route path="/" component={Home}/>
+                <Route path="/Driver" component={Driver}/>
+                <Route path="/Passenger" component={Passenger}/>
+                    <Route path="/Home" component={Home}/>
                 </p>
             </div>
         </div>
