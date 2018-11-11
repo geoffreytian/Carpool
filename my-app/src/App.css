@@ -1,10 +1,17 @@
-.App {
+.center {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.TextField-select {
+  width: 250px;
+}
+
+.pull-right {
+  right: 0;
+}
+
+.container {
+  display: flex;
 }
 
 .App-header {
@@ -29,4 +36,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.u-space-left {
+  margin-left: 15px;
+}
+
+.u-space-right {
+  margin-right: 15px;
 }
