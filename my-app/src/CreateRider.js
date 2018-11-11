@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createDriver } from './actions';
+import { createRider } from './actions';
 import { TextField, List, ListItem, MenuItem, Input } from '@material-ui/core';
 
-class CreateDriver extends Component {
+class CreateRider extends Component {
   state = {
     firstName: '',
     lastName: '',
     email: '',
     pickup: 'JB',
-    destination: 'ACC',
-    capacity: 0
+    destination: 'ACC'
   }
 
   pickups = [
@@ -23,7 +22,7 @@ class CreateDriver extends Component {
   ]
 
   handleSubmit = e => {
-    this.props.createDriver(this.state);
+    this.props.createRider(this.state);
     e.preventDefault();
   };
 
@@ -86,12 +85,6 @@ class CreateDriver extends Component {
             </TextField>
           </ListItem>
           <ListItem>
-            <TextField
-              label="Car Capacity"
-              onChange={this.handleChange('capacity')}
-            />
-          </ListItem>
-          <ListItem>
             <Input type="submit" value="Submit" />
           </ListItem>
         </List>
@@ -101,5 +94,5 @@ class CreateDriver extends Component {
 }
 
 export default connect(null, {
-  createDriver
-})(CreateDriver);
+  createRider
+})(CreateRider);

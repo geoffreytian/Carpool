@@ -1,25 +1,30 @@
 import config from './config';
 
-const ADD_RIDER = 'ADD_RIDER';
-const ADD_RIDER_SUCCESS = 'ADD_RIDER_SUCCESS';
-const ADD_RIDER_FAILURE = 'ADD_RIDER_FAILURE';
-const GET_RIDER_BY_ID = 'GET_RIDER_BY_ID';
-const GET_RIDER_BY_ID_SUCCESS = 'GET_RIDER_BY_ID_SUCCESS';
-const GET_RIDER_BY_ID_FAILURE = 'GET_RIDER_BY_ID_FAILURE';
+export const ADD_RIDER = 'ADD_RIDER';
+export const ADD_RIDER_SUCCESS = 'ADD_RIDER_SUCCESS';
+export const ADD_RIDER_FAILURE = 'ADD_RIDER_FAILURE';
 
-const CREATE_DRIVER = 'CREATE_DRIVER';
-const CREATE_DRIVER_SUCCESS = 'CREATE_DRIVER_SUCCESS';
-const CREATE_DRIVER_FAILURE = 'CREATE_DRIVER_FAILURE';
-const GET_DRIVER_BY_ID = 'GET_DRIVER_BY_ID';
-const GET_DRIVER_BY_ID_SUCCESS = 'GET_DRIVER_BY_ID_SUCCESS';
-const GET_DRIVER_BY_ID_FAILURE = 'GET_DRIVER_BY_ID_FAILURE';
+export const CREATE_RIDER = 'CREATE_RIDER';
+export const CREATE_RIDER_SUCCESS = 'CREATE_RIDER_SUCCESS';
+export const CREATE_RIDER_FAILURE = 'CREATE_RIDER_FAILURE';
+export const GET_RIDER_BY_ID = 'GET_RIDER_BY_ID';
+export const GET_RIDER_BY_ID_SUCCESS = 'GET_RIDER_BY_ID_SUCCESS';
+export const GET_RIDER_BY_ID_FAILURE = 'GET_RIDER_BY_ID_FAILURE';
+
+export const CREATE_DRIVER = 'CREATE_DRIVER';
+export const CREATE_DRIVER_SUCCESS = 'CREATE_DRIVER_SUCCESS';
+export const CREATE_DRIVER_FAILURE = 'CREATE_DRIVER_FAILURE';
+export const GET_DRIVER_BY_ID = 'GET_DRIVER_BY_ID';
+export const GET_DRIVER_BY_ID_SUCCESS = 'GET_DRIVER_BY_ID_SUCCESS';
+export const GET_DRIVER_BY_ID_FAILURE = 'GET_DRIVER_BY_ID_FAILURE';
 
 const createDriver = ({
   firstName,
   lastName,
   email,
   destination,
-  preferredPickupLocation
+  pickup,
+  capacity
 }) => dispatch => {
   dispatch({ type: CREATE_DRIVER });
   return fetch(
@@ -35,7 +40,8 @@ const createDriver = ({
         lastName,
         email,
         destination,
-        preferredPickupLocation,
+        pickup,
+        capacity,
         riderIds: []
       })
     }
@@ -43,6 +49,37 @@ const createDriver = ({
   .then(res => res.json())
   .then(data => dispatch({ type: CREATE_DRIVER_SUCCESS, data }))
   .catch(error => dispatch({ type: CREATE_DRIVER_FAILURE, error }));
+};
+
+const createRider = ({
+  firstName,
+  lastName,
+  email,
+  destination,
+  pickup
+}) => dispatch => {
+  dispatch({ type: CREATE_RIDER });
+  return fetch(
+    `http://${config.serverEndpoint}/riders/`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        destination,
+        pickup,
+        riderIds: []
+      })
+    }
+  )
+  .then(res => res.json())
+  .then(data => dispatch({ type: CREATE_RIDER_SUCCESS, data }))
+  .catch(error => dispatch({ type: CREATE_RIDER_FAILURE, error }));
 };
 
 const addRider = (driverId, riderId) => dispatch => {
@@ -107,19 +144,8 @@ const driverById = id => dispatch => {
 };
 
 export {
-  ADD_RIDER,
-  ADD_RIDER_SUCCESS,
-  ADD_RIDER_FAILURE,
-  GET_RIDER_BY_ID,
-  GET_RIDER_BY_ID_SUCCESS,
-  GET_RIDER_BY_ID_FAILURE,
-  CREATE_DRIVER,
-  CREATE_DRIVER_SUCCESS,
-  CREATE_DRIVER_FAILURE,
-  GET_DRIVER_BY_ID,
-  GET_DRIVER_BY_ID_SUCCESS,
-  GET_DRIVER_BY_ID_FAILURE,
   createDriver,
+  createRider,
   addRider,
   riderById,
   driverById
