@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './App.css';
 
 /* Import Components */
 import CheckBox from "./Checkbox";
@@ -15,13 +16,15 @@ class FormContainer extends Component {
       newUser: {
         name: "",
         locations: [],
-        about: ""
+        about: "",
+        email: ""
       },
 
-      locationOptions: ["Littlefield Foutain", "Jester", "Wampus", "Normpus"]
+      locationOptions: ["Littlefield Fountain    ", "Jester      ", "Wampus     ", "Normpus     "]
     };
     this.handleTextArea = this.handleTextArea.bind(this);
     this.handleFullName = this.handleFullName.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handleCheckBox = this.handleCheckBox.bind(this);
@@ -41,6 +44,19 @@ class FormContainer extends Component {
       }),
       () => console.log(this.state.newUser)
     );
+  }
+
+  handleEmail(e) {
+      let value = e.target.value;
+      this.setState(
+          prevState => ({
+              newUser: {
+                  ...prevState.newUser,
+                  email: value
+              }
+          }),
+          () => console.log(this.state.newUser)
+      );
   }
 
   handleInput(e) {
@@ -121,27 +137,37 @@ class FormContainer extends Component {
     return (
       <form className="container-fluid" onSubmit={this.handleFormSubmit}>
         <Input
+          class="inputbox"
           inputType={"text"}
-          title={"Full Name"}
+          title={"Full Name: "}
           name={"name"}
           value={this.state.newUser.name}
           placeholder={"Enter your name"}
           handleChange={this.handleInput}
         />{" "}
+
+        <Input class="inputbox"
+            inputType={"text"}
+            title={"E-mail: "}
+            name={"e-mail"}
+            value={this.state.newUser.e}
+            placeholder={"Enter your email"}
+            handleChange={this.handleInput}
+        />{" "}
         <CheckBox
-          title={"Pickup Locations"}
+          title={"Pickup Locations: "}
           name={"Pickup Locations"}
           options={this.state.locationOptions}
           selectedOptions={this.state.newUser.locations}
           handleChange={this.handleCheckBox}
         />{" "}
-        <Button
+        <Button class="submit"
           action={this.handleFormSubmit}
           type={"primary"}
           title={"Submit"}
           style={buttonStyle}
         />{" "}
-        <Button
+        <Button class="submit"
           action={this.handleClearForm}
           type={"secondary"}
           title={"Clear"}

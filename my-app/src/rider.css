@@ -5,11 +5,7 @@
     margin: 60px auto;
     width: 70%;
 }*/
-p {
-    font-size: 1.5em;
-    line-height: 1.4em;
-    color: #333;
-}
+
 
 .big-text{
     background-image: -webkit-linear-gradient(to right, #9933ff, #0099ff);
@@ -29,6 +25,6 @@ p {
 }                             
 
 .col-md-6 {                    
-  margin-bottom: 1em;          
+  margin-bottom: 1em;
 } 
 

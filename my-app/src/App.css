@@ -102,10 +102,10 @@ a:hover, a:active {
 }
 
 .text{
-  width: 32.5%;
+  width: 46%;
   display: inline-block;
   background_color: blue;
-  margin-left: 33.75%;
+  margin-left: 27%;
 }
 .link{
   font-family: "Helvetica Neue";
@@ -123,4 +123,39 @@ a:hover, a:active {
 .link:hover {
   color: black;
 
+}
+
+p {
+  font-size: 1.5em;
+  line-height: 1.4em;
+  color: #333;
+}
+
+
+.checkbox{
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+.label{
+  margin-bottom: 50px;
+  font-weight: bold;
+  margin-top: 3%;
+
+}
+
+.formgroup{
+  margin-top: 3%;
+  margin-left: 35%;
+}
+
+.inputbox{
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.submit{
+  margin-left: 35%;
 }
