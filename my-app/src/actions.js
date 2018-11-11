@@ -11,6 +11,9 @@ export const GET_RIDER_BY_ID = 'GET_RIDER_BY_ID';
 export const GET_RIDER_BY_ID_SUCCESS = 'GET_RIDER_BY_ID_SUCCESS';
 export const GET_RIDER_BY_ID_FAILURE = 'GET_RIDER_BY_ID_FAILURE';
 
+export const UPDATE_DRIVER = 'UPDATE_DRIVER';
+export const UPDATE_DRIVER_SUCCESS = 'UPDATE_DRIVER_SUCCESS';
+export const UPDATE_DRIVER_FAILURE = 'UPDATE_DRIVER_FAILURE';
 export const CREATE_DRIVER = 'CREATE_DRIVER';
 export const CREATE_DRIVER_SUCCESS = 'CREATE_DRIVER_SUCCESS';
 export const CREATE_DRIVER_FAILURE = 'CREATE_DRIVER_FAILURE';
@@ -72,8 +75,7 @@ const createRider = ({
         lastName,
         email,
         destination,
-        pickup,
-        riderIds: []
+        pickup
       })
     }
   )
@@ -126,6 +128,26 @@ const riderById = id => dispatch => {
   });
 };
 
+const updateDriver = (id, input) => dispatch => {
+  dispatch({ type: UPDATE_DRIVER });
+  return fetch(
+    `http://${config.serverEndpoint}/drivers/${id}`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(input)
+    }
+  )
+  .then(res => res.json())
+  .then(data => {
+    dispatch({ type: UPDATE_DRIVER_SUCCESS, data })
+  })
+  .catch(error => dispatch({ type: UPDATE_DRIVER_FAILURE, error }));
+};
+
 const driverById = id => dispatch => {
   dispatch({ type: GET_DRIVER_BY_ID });
   return fetch(
@@ -139,7 +161,9 @@ const driverById = id => dispatch => {
     }
   )
   .then(res => res.json())
-  .then(data => dispatch({ type: GET_DRIVER_BY_ID_SUCCESS, data }))
+  .then(data => {
+    dispatch({ type: GET_DRIVER_BY_ID_SUCCESS, data })
+  })
   .catch(error => dispatch({ type: GET_DRIVER_BY_ID_FAILURE, error }));
 };
 

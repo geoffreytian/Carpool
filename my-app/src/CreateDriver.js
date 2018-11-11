@@ -24,6 +24,14 @@ class CreateDriver extends Component {
 
   handleSubmit = e => {
     this.props.createDriver(this.state);
+    this.setState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      pickup: 'JB',
+      destination: 'ACC',
+      capacity: 0
+    });
     e.preventDefault();
   };
 
@@ -39,25 +47,31 @@ class CreateDriver extends Component {
         <List>
           <ListItem>
             <TextField
+              className="TextField"
+              value={this.state.firstName}
               label="First Name"
               onChange={this.handleChange('firstName')}
             />
           </ListItem>
           <ListItem>
             <TextField
+              className="TextField"
+              value={this.state.lastName}
               label="Last Name"
               onChange={this.handleChange('lastName')}
             />
           </ListItem>
           <ListItem>
             <TextField
+              className="TextField"
+              value={this.state.email}
               label="E-Mail"
               onChange={this.handleChange('email')}
             />
           </ListItem>
           <ListItem>
             <TextField
-              className="TextField-select"
+              className="TextField"
               select
               value={this.state.destination}
               onChange={this.handleChange('destination')}
@@ -72,7 +86,7 @@ class CreateDriver extends Component {
           </ListItem>
           <ListItem>
             <TextField
-              className="TextField-select"
+              className="TextField"
               select
               value={this.state.pickup}
               onChange={this.handleChange('pickup')}
@@ -87,6 +101,7 @@ class CreateDriver extends Component {
           </ListItem>
           <ListItem>
             <TextField
+              value={this.state.capacity}
               label="Car Capacity"
               onChange={this.handleChange('capacity')}
             />

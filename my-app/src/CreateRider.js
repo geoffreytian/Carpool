@@ -24,6 +24,13 @@ class CreateRider extends Component {
   handleSubmit = e => {
     this.props.createRider(this.state);
     e.preventDefault();
+    this.setState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      pickup: 'JB',
+      destination: 'ACC'
+    });
   };
 
   handleChange = name => e => {
@@ -38,25 +45,31 @@ class CreateRider extends Component {
         <List>
           <ListItem>
             <TextField
+              className="TextField"
+              value={this.state.firstName}
               label="First Name"
               onChange={this.handleChange('firstName')}
             />
           </ListItem>
           <ListItem>
             <TextField
+              className="TextField"
+              value={this.state.lastName}
               label="Last Name"
               onChange={this.handleChange('lastName')}
             />
           </ListItem>
           <ListItem>
             <TextField
+              className="TextField"
+              value={this.state.email}
               label="E-Mail"
               onChange={this.handleChange('email')}
             />
           </ListItem>
           <ListItem>
             <TextField
-              className="TextField-select"
+              className="TextField"
               select
               value={this.state.destination}
               onChange={this.handleChange('destination')}
@@ -71,7 +84,7 @@ class CreateRider extends Component {
           </ListItem>
           <ListItem>
             <TextField
-              className="TextField-select"
+              className="TextField"
               select
               value={this.state.pickup}
               onChange={this.handleChange('pickup')}
