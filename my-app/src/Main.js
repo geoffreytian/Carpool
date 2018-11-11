@@ -7,6 +7,7 @@ import {
 import driver from "./driver"
 import Button from '@material-ui/core/Button';
 import Home from "./Home"
+import Rider from "./rider"
 
 
 class UserButton extends Component{
@@ -19,11 +20,11 @@ class UserButton extends Component{
     }
 }
 
-class HomeButton extends Component{
+class RiderButton extends Component{
   render(){
     return(
         <Button className="button" variant="contained" color="primary">
-            <NavLink to="/Home" onClick={ }>Home</NavLink>
+            <NavLink to="/rider" >Rider</NavLink>
         </Button>
     )
   }
@@ -38,9 +39,9 @@ class Main extends Component {
         );
     }
 
-    renderHome(){
+    renderRider(){
       return(
-          <HomeButton/>
+          <RiderButton/>
       )
     }
 
@@ -49,12 +50,12 @@ class Main extends Component {
       <HashRouter>
         <div>
           <h1>Select:</h1>
-          <p>{this.renderButton()}{this.renderButton()}{this.renderHome()}</p>
+          <p>{this.renderButton()}{this.renderButton()}{this.renderRider()}</p>
             <div className="content">
                 <br></br>
                 <p>
                 <Route path="/driver" component={driver}/>
-                <Route path="/" component={Home}/>
+                <Route path="/rider" component={Rider}/>
                 </p>
             </div>
         </div>
