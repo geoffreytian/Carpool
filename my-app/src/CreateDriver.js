@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { , TextField, List, ListItem, MenuItem, Input } from '@material-ui/core';
+import { TextField, List, ListItem, MenuItem, Input } from '@material-ui/core';
 
 class CreateDriver extends Component {
   state = {
