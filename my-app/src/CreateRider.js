@@ -34,7 +34,7 @@ class CreateRider extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} class="form">
         <List>
           <ListItem>
             <TextField
