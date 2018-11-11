@@ -4,29 +4,85 @@ import {
   NavLink,
   HashRouter
 } from "react-router-dom";
-import Home from "./Home";
-import Stuff from "./Stuff";
-import Contact from "./Contact";
+import Driver from "./Driver"
+import Button from '@material-ui/core/Button';
+import "./App.css";
+import Home from "./Home"
+import Passenger from "./Passenger"
+
+
+class DriverButton extends Component{
+    render(){
+        return(
+            <NavLink className="link" class="link" to="/Driver">Driver</NavLink>
+        )
+    }
+}
+
+class HomeButton extends Component {
+    render() {
+        return (
+            <NavLink className="link" class="link" to="/Home">Home</NavLink>
+        )
+    }
+}
+
+class PassengerButton extends Component{
+    render(){
+        return(
+            <NavLink className="link" class="link" to="/Passenger">Passenger</NavLink>
+        )
+    }
+}
+
  
 class Main extends Component {
+
+    renderDriver() {
+        return (
+            <DriverButton/>
+        );
+    }
+
+    renderHome(){
+      return(
+          <HomeButton/>
+      )
+    }
+
+    renderPassenger(){
+        return(
+            <PassengerButton/>
+        )
+    }
+
   render() {
     return (
       <HashRouter>
         <div>
-          <h1>Simple SPA</h1>
-          <ul className="header"></ul>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/stuff">Stuff</NavLink></li>
-            <li><NavLink to="/contact">Contact</NavLink></li>
-          <div className="content">
-             <Route path="/" component={Home}/>
-            <Route path="/stuff" component={Stuff}/>
-            <Route path="/contact" component={Contact}/>
-          </div>
+            {this.renderHome()} {this.renderDriver()}  {this.renderPassenger()}
+            <div className="content">
+                <br></br>
+                    <Route path="/Driver" component={Driver}/>
+                    <Route path="/Passenger" component={Passenger}/>
+                    <Route path="/Home" component={Home}/>
+            </div>
         </div>
       </HashRouter>
     );
   }
+
+  render(){
+        return(
+            <HashRouter>
+                <div>
+                    <Route path="/start" component={ViewSelector}/>
+                    <Route path="/drivers/new" component={CreateDriver}/>
+                </div>
+            </HashRouter>
+        )
+  }
 }
+
  
 export default Main;
