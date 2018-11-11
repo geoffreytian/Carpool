@@ -1,6 +1,5 @@
 {
-  "drivers": [
-  ],
+  "drivers": [],
   "riders": [
     {
       "id": 1,
@@ -25,6 +24,15 @@
       "email": "jimsmith@testmail.com",
       "destination": "ACC",
       "pickup": "JB"
+    },
+    {
+      "firstName": "Geoffrey",
+      "lastName": "Tian",
+      "email": "geoffreytian@utexas.edu",
+      "destination": "ASCC",
+      "pickup": "JB",
+      "riderIds": [],
+      "id": 4
     }
   ]
 }

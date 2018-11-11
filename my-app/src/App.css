@@ -6,6 +6,15 @@
   width: 250px;
 }
 
+body {
+  background-color: mintcream;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
 .pull-right {
   right: 0;
 }
@@ -22,7 +31,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgba(255, 163, 195, 0.69);
 }
 
 .App-link {
@@ -38,6 +47,131 @@
   }
 }
 
+
+/*.button {*/
+  /*background: rgba(255, 191, 217, 0.35);*/
+  /*border: none;*/
+  /*font-size: 24px;*/
+  /*font-weight: bold;*/
+  /*line-height: 34px;*/
+  /*vertical-align: ;*/
+  /*height: 75px;*/
+  /*padding: 10px;*/
+  /*align-content: center;*/
+  /*width: 20%;*/
+  /*margin-left: 40%;*/
+  /*margin-top: 5%;*/
+  /*margin-right: 40%;*/
+  /*transition-duration: 0.4s;*/
+  /*margin-bottom: 5%;*/
+  /*border-radius: 50px;*/
+  /*text-align: center;*/
+  /*line-height: 65px;*/
+/*}*/
+
+/*.button:hover {*/
+  /*background-color: #ffc7eb; !* Green *!*/
+  /*color: white;*/
+  /*box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);*/
+
+/*}*/
+
+a:link, a:visited {
+
+  /*line-height: 34px;*/
+  vertical-align: center;
+  height: 30px;
+  /*padding: 10px;*/
+  width: 20%;
+  margin-left: 6.8%;
+  margin-top: 3%;
+  margin-right: 1%;
+  transition-duration: 0.4s;
+  margin-bottom: 5%;
+  border-radius: 50px;
+  line-height: 25px;
+  background-color: lightgrey;
+  color: slategrey;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+}
+
+a:hover, a:active {
+  background-color: cornflowerblue;
+  color:;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+
+.text1{
+  width: 1%;
+  display: inline-block;
+  background_color: blue;
+  margin-left: 47.5%;
+}
+
+.text{
+  width: 46%;
+  display: inline-block;
+  background_color: blue;
+  margin-left: 27%;
+}
+.link{
+  font-family: "Helvetica Neue";
+  color: rgba(0, 0, 0, 0.66);
+  font-size: 30px;
+  /*font-weight: bold;*/
+  line-height: 12px;
+  vertical-align: text-top;
+  width: 40%;
+  text-decoration: none;
+  display: inline-flex;
+
+}
+
+.link:hover {
+  color: black;
+
+}
+
+p {
+  font-size: 1.5em;
+  line-height: 1.4em;
+  color: #333;
+}
+
+
+.checkbox{
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+.label{
+  margin-bottom: 50px;
+  font-weight: bold;
+  margin-top: 3%;
+
+}
+
+.form{
+  margin-top: -1%;
+  margin-left: 40%;
+}
+
+.inputbox{
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.submit {
+  margin-left: 35%;
+}
 .u-space-left {
   margin-left: 15px;
 }
