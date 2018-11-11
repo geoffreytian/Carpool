@@ -13,7 +13,7 @@ const ViewSelector = () => {
             variant="contained"
             color="primary"
             component={Link}
-            to="/drivers/new"
+            to="/new-driver"
           >
             A Driver
           </Button>
@@ -23,7 +23,7 @@ const ViewSelector = () => {
             variant="contained"
             color="secondary"
             component={Link}
-            to="/riders/new"
+            to="/new-rider"
           >
             A Passenger
           </Button>
