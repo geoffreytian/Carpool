@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { HashRouter, Route } from 'react-router-dom';
-import { Paper } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import NavBar from './NavBar';
 import ViewSelector from './ViewSelector';
 import CreateDriver from './CreateDriver';
@@ -19,15 +19,15 @@ class Main extends Component {
   render() {
     return (
       <HashRouter basename="/">
-        <div>
+        <Grid container spacing={24}>
           <Route path="/" component={NavBar} />
-          <div>
+          <Grid item sm={12}>
             <Route path="/start" component={ViewSelector} />
             <Route path="/drivers/:id" component={DriverDetail} />
             <Route path="/new-driver" component={CreateDriver} />
             <Route path="/new-rider" component={CreateRider} />
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </HashRouter>
     );
   }
